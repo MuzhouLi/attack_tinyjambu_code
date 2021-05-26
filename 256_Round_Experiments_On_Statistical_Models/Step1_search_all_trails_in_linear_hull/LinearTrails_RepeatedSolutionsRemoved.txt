@@ -1,0 +1,8 @@
+sol_index=0, cor=+2**(-10.0) involved bits=k_7,k_27,k_30,k_37,k_44,k_81,k_111,k_118,
+
+sol_index=1, cor=-2**(-11.0) involved bits=k_6,k_7,k_27,k_30,k_37,k_44,k_81,k_111,k_118,
+
+sol_index=2, cor=-2**(-11.0) involved bits=k_7,k_21,k_27,k_30,k_37,k_44,k_81,k_111,k_118,
+
+sol_index=3, cor=+2**(-11.0) involved bits=k_6,k_7,k_21,k_27,k_30,k_37,k_44,k_81,k_111,k_118,
+
