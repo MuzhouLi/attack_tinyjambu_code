@@ -79,22 +79,17 @@ for N_index in range(200,250,5):
 	alpha=[0 for k in range(len(CorKind))]
 	KeyInfo=[0 for k in range(len(CorKind))]
 
-	for k in range(len(CorKind)):
-		alpha[k]=0
-		if k==0 or k==len(CorKind)-1:
-			if k==0:
-				for i in range(len(CorKind)):
-					if i!=k:
-						alpha[k]+=stats.norm.cdf((N**0.5)*((CorKind[k]+CorKind[k+1])/2.0-CorKind[i])/((2*B)**0.5))
-			else:
-				for i in range(len(CorKind)):
-					if i!=k:
-						alpha[k]+=(1-stats.norm.cdf((N**0.5)*((CorKind[k]+CorKind[k-1])/2.0-CorKind[i])/((2*B)**0.5)))
-		else:
-			for i in range(len(CorKind)):
-				if i!=k:
-					alpha[k]+=(stats.norm.cdf((N**0.5)*((CorKind[k]+CorKind[k+1])/2.0-CorKind[i])/((2*B)**0.5))-stats.norm.cdf((N**0.5)*((CorKind[k]+CorKind[k-1])/2.0-CorKind[i])/((2*B)**0.5)))
-		print(CorKind[k]/baseCor,1-alpha[k])
+	for j in range(len(CorKind)):
+		alpha[j]=0
+		for i in range(len(CorKind)):
+			if i!=j:
+				if i==0:
+					alpha[j]+=stats.norm.cdf((N**0.5)*((CorKind[i]+CorKind[i+1])/2.0-CorKind[j])/((2*B)**0.5))
+				elif i==len(CorKind)-1:
+					alpha[j]+=(1-stats.norm.cdf((N**0.5)*((CorKind[i]+CorKind[i-1])/2.0-CorKind[j])/((2*B)**0.5)))
+				else:
+					alpha[j]+=(stats.norm.cdf((N**0.5)*((CorKind[i]+CorKind[i+1])/2.0-CorKind[j])/((2*B)**0.5))-stats.norm.cdf((N**0.5)*((CorKind[i]+CorKind[i-1])/2.0-CorKind[j])/((2*B)**0.5)))
+		print(CorKind[j]/baseCor,1-alpha[j])
 
 	print("N=2^",math.log(N)/math.log(2))
 
